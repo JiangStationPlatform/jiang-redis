@@ -1,2 +1,2 @@
 # jiang-redis
-redis主从服务器
+redis主从数据库
