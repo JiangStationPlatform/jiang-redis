@@ -6,6 +6,8 @@ services:
     container_name: redis-master
     ports:
       - 6379:6379
+    command: --requirepass "123456"
+
   redis-slave1:
     image: 'redis:5.0.8-buster'
     container_name: redis-slave1
