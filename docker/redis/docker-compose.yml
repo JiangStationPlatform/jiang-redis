@@ -6,18 +6,18 @@ services:
     container_name: redis-master
     ports:
       - 6379:6379
-    command: --requirepass "123456"
+    command: redis-server --requirepass "123456"
 
-  redis-slave1:
+  redis-slave-1:
     image: 'redis:5.0.8-buster'
-    container_name: redis-slave1
+    container_name: redis-slave-1
     ports:
-      - 6380:6379
-    command: redis-server --slaveof redis-master 6379
+        - 6380:6379
+    command: redis-server --slaveof redis-master 6379 --requirepass 123456 --masterauth 123456
 
-  redis-slave2:
+  redis-slave-2:
     image: 'redis:5.0.8-buster'
-    container_name: redis-slave2
+    container_name: redis-slave-2
     ports:
-      - 6381:6379
-    command: redis-server --slaveof redis-master 6379
+        - 6381:6379
+    command: redis-server --slaveof redis-master 6379 --requirepass 123456 --masterauth 123456
